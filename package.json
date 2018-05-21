@@ -8,12 +8,13 @@
     "start": "node server/server.js"
   },
   "engines": {
-    "node":"8.11.2"
+    "node": "8.11.2"
   },
   "author": "Anamol Shrestha",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
-    "nodemon": "^1.17.4"
+    "nodemon": "^1.17.4",
+    "socket.io": "^2.1.1"
   }
 }
