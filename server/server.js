@@ -13,11 +13,20 @@ app.use(express.static(publicPath));
 
 io.on('connection',(socket)=>{
 
+   socket.emit('newMessage',{
+       from:'Jon',
+       text:"Hello",
+       createdAt:1215
+   });
+   
+   socket.on('createMessage',(message)=>{
+    console.log(message);
+   });
+
     socket.on('disconnect',()=>{
         console.log('Disconncted with the client');
     });
 });
-
 
 server.listen(port,()=>{
     console.log('The server is up on port 3000');
