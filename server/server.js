@@ -12,16 +12,15 @@ const io = socketIO(server);
 app.use(express.static(publicPath));
 
 io.on('connection',(socket)=>{
-
-   socket.emit('newMessage',{
-       from:'Jon',
-       text:"Hello",
-       createdAt:1215
-   });
    
    socket.on('createMessage',(message)=>{
     console.log(message);
-   });
+    io.emit('newMessage',{
+        from:message.from,
+        text:message.text,
+        createdAt: new Date().getTime()
+    });
+   }); 
 
     socket.on('disconnect',()=>{
         console.log('Disconncted with the client');
